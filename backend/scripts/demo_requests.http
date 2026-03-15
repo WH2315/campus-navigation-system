@@ -1,0 +1,91 @@
+### 健康检查
+GET http://127.0.0.1:8000/health
+
+### 景点列表（Unity 自动讲解映射）
+GET http://127.0.0.1:8000/api/v1/spots
+
+### 单景点个性化讲解生成（节点到达触发）
+POST http://127.0.0.1:8000/api/v1/guide/spot-generate
+Content-Type: application/json
+
+{
+  "node_id": "library",
+  "user_profile": "new_student",
+  "style": "friendly",
+  "language": "zh"
+}
+
+### 路线规划
+POST http://127.0.0.1:8000/api/v1/route/plan
+Content-Type: application/json
+
+{
+  "start_id": "gate_north",
+  "end_id": "stadium",
+  "avoid_crowded": true,
+  "prefer_indoor": false
+}
+
+### 生成讲解
+POST http://127.0.0.1:8000/api/v1/guide/generate
+Content-Type: application/json
+
+{
+  "user_profile": "new_student",
+  "style": "storytelling",
+  "language": "zh",
+  "route_nodes": ["gate_north", "library", "teaching_a", "stadium"]
+}
+
+### 导览问答
+POST http://127.0.0.1:8000/api/v1/session/chat
+Content-Type: application/json
+
+{
+  "question": "这个景点对新生有什么帮助？",
+  "language": "zh",
+  "current_spot_id": "library"
+}
+
+### 文本转语音
+POST http://127.0.0.1:8000/api/v1/speech/tts
+Content-Type: application/json
+
+{
+  "text": "欢迎来到图书馆，这里是学校重要的学习中心。",
+  "voice": "xiaoyan"
+}
+
+### 语音识别 ASR（请将文件路径替换为本地 wav 文件）
+POST http://127.0.0.1:8000/api/v1/speech/asr
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="language"
+
+zh
+--WebAppBoundary
+Content-Disposition: form-data; name="audio"; filename="question.wav"
+Content-Type: audio/wav
+
+< ./question.wav
+--WebAppBoundary--
+
+### 语音问答（ASR + Chat）
+POST http://127.0.0.1:8000/api/v1/session/voice-chat
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="language"
+
+zh
+--WebAppBoundary
+Content-Disposition: form-data; name="current_spot_id"
+
+library
+--WebAppBoundary
+Content-Disposition: form-data; name="audio"; filename="question.wav"
+Content-Type: audio/wav
+
+< ./question.wav
+--WebAppBoundary--

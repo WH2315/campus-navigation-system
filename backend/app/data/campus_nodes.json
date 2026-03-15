@@ -1,0 +1,58 @@
+[
+  {
+    "node_id": "gate_north",
+    "name": "北门",
+    "category": "entrance",
+    "intro": "北门是学校主要出入口之一，连接城市主干道与校园主轴。",
+    "indoor": false,
+    "crowded_score": 0.7
+  },
+  {
+    "node_id": "library",
+    "name": "图书馆",
+    "category": "study",
+    "intro": "图书馆馆藏丰富，设有自习区、电子阅览室与学术报告厅。",
+    "indoor": true,
+    "crowded_score": 0.6
+  },
+  {
+    "node_id": "teaching_a",
+    "name": "第一教学楼",
+    "category": "teaching",
+    "intro": "第一教学楼承担基础课程教学，是新生常用上课区域。",
+    "indoor": true,
+    "crowded_score": 0.5
+  },
+  {
+    "node_id": "lab_center",
+    "name": "实验中心",
+    "category": "research",
+    "intro": "实验中心聚焦创新实践，配备多学科实验平台。",
+    "indoor": true,
+    "crowded_score": 0.4
+  },
+  {
+    "node_id": "stadium",
+    "name": "体育馆",
+    "category": "sports",
+    "intro": "体育馆用于体育课程与赛事活动，是校园活力地标。",
+    "indoor": true,
+    "crowded_score": 0.8
+  },
+  {
+    "node_id": "lake",
+    "name": "明德湖",
+    "category": "landscape",
+    "intro": "明德湖是校园景观核心区域，适合休闲与文化活动。",
+    "indoor": false,
+    "crowded_score": 0.3
+  },
+  {
+    "node_id": "dorm_a",
+    "name": "学生宿舍A区",
+    "category": "living",
+    "intro": "宿舍A区邻近食堂和教学区，生活配套完善。",
+    "indoor": true,
+    "crowded_score": 0.6
+  }
+]

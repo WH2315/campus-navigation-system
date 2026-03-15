@@ -1,0 +1,12 @@
+[
+  {"from_id": "gate_north", "to_id": "library", "distance": 220, "indoor": false, "crowded_score": 0.6},
+  {"from_id": "gate_north", "to_id": "lake", "distance": 260, "indoor": false, "crowded_score": 0.2},
+  {"from_id": "library", "to_id": "teaching_a", "distance": 180, "indoor": true, "crowded_score": 0.5},
+  {"from_id": "teaching_a", "to_id": "lab_center", "distance": 140, "indoor": true, "crowded_score": 0.4},
+  {"from_id": "lab_center", "to_id": "stadium", "distance": 280, "indoor": false, "crowded_score": 0.6},
+  {"from_id": "library", "to_id": "lake", "distance": 160, "indoor": false, "crowded_score": 0.3},
+  {"from_id": "lake", "to_id": "stadium", "distance": 240, "indoor": false, "crowded_score": 0.4},
+  {"from_id": "teaching_a", "to_id": "dorm_a", "distance": 210, "indoor": false, "crowded_score": 0.5},
+  {"from_id": "dorm_a", "to_id": "stadium", "distance": 170, "indoor": false, "crowded_score": 0.7},
+  {"from_id": "dorm_a", "to_id": "library", "distance": 190, "indoor": true, "crowded_score": 0.4}
+]
