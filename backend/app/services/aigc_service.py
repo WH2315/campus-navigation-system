@@ -9,9 +9,9 @@ from app.config import settings
 
 class AIGCService:
     def __init__(self) -> None:
-        self.api_key = settings.openai_api_key.strip()
-        self.base_url = settings.openai_base_url.rstrip("/")
-        self.model = settings.openai_model
+        self.api_key = (settings.chat_api_key or settings.openai_api_key).strip()
+        self.base_url = (settings.chat_base_url or settings.openai_base_url).rstrip("/")
+        self.model = settings.chat_model or settings.openai_model
 
     @property
     def enabled(self) -> bool:

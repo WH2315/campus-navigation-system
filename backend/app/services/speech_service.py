@@ -17,14 +17,18 @@ class SpeechService:
         return f"https://mock-tts.local/audio/{voice}?len={words}", duration
 
     async def asr(self, audio_bytes: bytes, filename: str, language: str = "zh") -> str:
-        if settings.asr_engine == "mock" or not settings.openai_api_key.strip():
+        asr_api_key = (settings.asr_api_key or settings.openai_api_key).strip()
+        asr_base_url = (settings.asr_base_url or settings.openai_base_url).rstrip("/")
+        asr_model = settings.asr_model or settings.openai_model
+
+        if settings.asr_engine == "mock" or not asr_api_key:
             # mock 模式只返回固定识别结果，便于联调全流程。
             return "请介绍一下图书馆的学习资源和开放时间。"
 
-        url = f"{settings.openai_base_url.rstrip('/')}/audio/transcriptions"
-        headers = {"Authorization": f"Bearer {settings.openai_api_key}"}
+        url = f"{asr_base_url}/audio/transcriptions"
+        headers = {"Authorization": f"Bearer {asr_api_key}"}
         data = {
-            "model": settings.openai_model,
+            "model": asr_model,
             "language": language,
         }
         files = {

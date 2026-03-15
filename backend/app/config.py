@@ -11,6 +11,16 @@ class Settings(BaseSettings):
     openai_base_url: str = "https://api.openai.com/v1"
     openai_model: str = "gpt-4o-mini"
 
+    # Chat channel (preferred). If empty, fallback to OPENAI_*.
+    chat_api_key: str = ""
+    chat_base_url: str = ""
+    chat_model: str = ""
+
+    # ASR channel (preferred). If empty, fallback to OPENAI_*.
+    asr_api_key: str = ""
+    asr_base_url: str = ""
+    asr_model: str = ""
+
     tts_engine: str = "mock"
     asr_engine: str = "mock"
 
